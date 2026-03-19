@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZZ's blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F7D6DA;
+            color: #8A7073;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .sidebar {
+            flex: 2;
+            background-color: #F7D6DA;
+            border: 2px solid #E8B4BA;
+            border-radius: 8px;
+            padding: 20px;
+            height: fit-content;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .main-content {
+            flex: 8;
+            background-color: #F7D6DA;
+            border: 2px solid #E8B4BA;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .sidebar h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #8A7073;
+            border-bottom: 2px solid #E8B4BA;
+            padding-bottom: 10px;
+        }
+        
+        .sidebar .profile {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .sidebar .profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border: 3px solid #E8B4BA;
+            transition: transform 0.6s;
+        }
+        
+        .sidebar .profile img.rotate {
+            animation: coinFlip 0.6s ease-in-out;
+        }
+        
+        @keyframes coinFlip {
+            0% {
+                transform: rotateY(0deg);
+            }
+            50% {
+                transform: rotateY(90deg);
+                opacity: 0;
+            }
+            100% {
+                transform: rotateY(0deg);
+                opacity: 1;
+            }
+        }
+        
+        .sidebar .profile h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .sidebar .profile p {
+            font-size: 14px;
+            color: #8A7073;
+        }
+        
+        .sidebar .profile img {
+            cursor: pointer;
+        }
+        
+        .sidebar .menu {
+            list-style: none;
+        }
+        
+        .sidebar .menu li {
+            margin-bottom: 10px;
+        }
+        
+        .sidebar .menu a {
+            text-decoration: none;
+            color: #8A7073;
+            display: block;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .sidebar .menu a:hover {
+            background-color: #E8B4BA;
+        }
+        
+        .main-content h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #8A7073;
+            border-bottom: 2px solid #E8B4BA;
+            padding-bottom: 10px;
+        }
+        
+        .main-content .post {
+            margin-bottom: 40px;
+        }
+        
+        .main-content .post h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #8A7073;
+        }
+        
+        .main-content .post-meta {
+            font-size: 14px;
+            color: #8A7073;
+            margin-bottom: 15px;
+        }
+        
+        .main-content .post-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #E8B4BA;
+        }
+        
+        .main-content .post-content p {
+            margin-bottom: 15px;
+        }
+        
+        .main-content .read-more {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 16px;
+            background-color: #E8B4BA;
+            color: #8A7073;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .main-content .read-more:hover {
+            background-color: #D99FA6;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                order: 2;
+            }
+            
+            .main-content {
+                order: 1;
+            }
+        }
+        
+        /* 页脚样式 */
+        .footer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .github-link {
+            display: inline-block;
+            margin-top: 20px;
+        }
+        
+        .github-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .github-logo {
+            width: 32px;
+            height: 32px;
+            fill: #8A7073;
+            transition: fill 0.3s;
+        }
+        
+        .github-link:hover .github-logo {
+            fill: #E8B4BA;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 左侧边栏 -->
+        <div class="sidebar">
+            <div class="profile">
+                <img src="https://picui.ogmua.cn/s1/2026/03/19/69bbfb0c6928e.webp" alt="zz">
+                <h3>zz</h3>
+                <p>今日も生きてて偉いね.</p>
+            </div>
+            
+            <h2>导航菜单</h2>
+            <ul class="menu">
+                <li><a href="blog.html">首页</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li><a href="#">博客文章</a></li>
+                <li><a href="#">联系方式</a></li>
+            </ul>
+            
+            <!-- GitHub链接 -->
+            <div class="github-container">
+                <a href="https://github.com/Schneider-22" class="github-link" target="_blank">
+                    <svg class="github-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <!-- 右侧主内容区 -->
+        <div class="main-content">
+            <h1>个人博客</h1>
+            
+            <div class="post">
+                <h2>欢迎来到我的个人博客</h2>
+                <div class="post-meta">发布于 2026-03-19</div>
+                <div class="post-content">
+                    <p>大家好！欢迎来到我的个人博客。这里是我分享生活感悟、技术心得、旅行经历和读书体会的地方。</p>
+                    <p>通过这个博客，我希望能够记录自己的成长历程，同时也能与大家分享一些有价值的内容。无论是生活中的小确幸，还是工作中的挑战与收获，我都会在这里与大家分享。</p>
+                    <p>如果你对我的内容感兴趣，欢迎关注我的博客，也可以通过联系方式与我交流。</p>
+                </div>
+                <a href="#" class="read-more">阅读更多</a>
+            </div>
+            
+            <div class="post">
+                <h2>技术分享：前端开发的一些小技巧</h2>
+                <div class="post-meta">发布于 2026-03-15</div>
+                <div class="post-content">
+                    <p>在前端开发中，我们经常会遇到各种问题，这里我想分享一些实用的小技巧，希望能对大家有所帮助。</p>
+                    <p>首先，关于CSS布局，使用flexbox和grid可以轻松实现各种复杂的布局效果。其次，对于性能优化，合理使用缓存和懒加载可以显著提升页面加载速度。</p>
+                    <p>另外，代码规范也非常重要，良好的代码结构和注释可以提高代码的可维护性。最后，持续学习新技术也是前端开发者必备的素质。</p>
+                </div>
+                <a href="#" class="read-more">阅读更多</a>
+            </div>
+            
+            <div class="post">
+                <h2>旅行日记：春日之旅</h2>
+                <div class="post-meta">发布于 2026-03-10</div>
+                <div class="post-content">
+                    <p>春天是一个充满生机的季节，我最近去了一次郊外旅行，感受到了大自然的美丽与活力。</p>
+                    <p>沿途的桃花、樱花竞相开放，一片春意盎然的景象。我们在郊外野餐，欣赏着美丽的风景，度过了一个愉快的周末。</p>
+                    <p>这次旅行让我感受到了生活的美好，也让我更加珍惜与家人朋友相处的时光。</p>
+                </div>
+                <a href="#" class="read-more">阅读更多</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 头像切换功能
+        const avatar = document.querySelector('.sidebar .profile img');
+        const originalSrc = "https://picui.ogmua.cn/s1/2026/03/19/69bbfb0c6928e.webp";
+        const newSrc = "https://picui.ogmua.cn/s1/2026/03/19/69bbfb0baa416.webp";
+        
+        let isOriginal = true;
+        let isAnimating = false;
+        
+        avatar.addEventListener('click', function() {
+            if (isAnimating) return;
+            
+            isAnimating = true;
+            avatar.classList.add('rotate');
+            
+            setTimeout(() => {
+                if (isOriginal) {
+                    avatar.src = newSrc;
+                    isOriginal = false;
+                } else {
+                    avatar.src = originalSrc;
+                    isOriginal = true;
+                }
+            }, 300);
+            
+            setTimeout(() => {
+                avatar.classList.remove('rotate');
+                isAnimating = false;
+            }, 600);
+        });
+    </script>
+</body>
+</html>

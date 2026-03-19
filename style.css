@@ -1,0 +1,307 @@
+:root{
+    --bg:#f4f6fb;
+    --card:#ffffff;
+    --text:#222;
+    --accent:#5b7cff;
+}
+
+body.dark{
+    --bg:#1e1f25;
+    --card:#2a2c33;
+    --text:#eee;
+}
+
+body{
+    margin:0;
+    font-family:Segoe UI, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+}
+
+.container{display:flex;height:100vh}
+
+/* 左侧 */
+.sidebar{
+    width:210px;
+    background:var(--card);
+    padding:20px 15px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.menuList{
+    padding:0;
+    margin-top:5px;
+}
+.menuList li{
+    list-style:none;
+    padding:12px;
+    border-radius:8px;
+    cursor:pointer;
+}
+.menuList li:hover{background:var(--bg)}
+
+#themeToggle{
+    align-self:flex-start;
+    border:none;
+    background:var(--accent);
+    color:white;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+/* 主区域 */
+.main{flex:1;padding:20px;overflow:auto}
+.page{display:none}
+.page.active{display:block}
+
+.header{margin-bottom:10px}
+
+#taskInput{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    margin:15px 0;
+}
+
+.task{
+    display:flex;
+    justify-content:space-between;
+    background:var(--card);
+    padding:10px;
+    margin-bottom:8px;
+    border-radius:8px;
+}
+
+.done span{
+    text-decoration:line-through;
+    color:gray;
+}
+
+/* 已完成页面美化 */
+.completedCard{
+    background:var(--card);
+    border-radius:10px;
+    padding:12px;
+    margin-bottom:10px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.08);
+    color:gray;
+    text-decoration:line-through;
+}
+
+/* 日历 */
+.calendarPage{
+    height:100%;
+}
+
+.calendarGrid{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:6px;
+    height:100%;
+}
+
+.dayCell{
+    background:var(--card);
+    border-radius:8px;
+    padding:6px;
+    min-height:80px;
+    font-size:12px;
+}
+
+.today{
+    border:2px solid var(--accent);
+}
+
+/* 第三列 */
+.lists{
+    width:260px;
+    background:var(--card);
+    padding:15px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.miniHeader{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    font-size:12px;
+    text-align:center;
+    margin-bottom:4px;
+}
+
+.miniGrid{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:3px;
+    font-size:11px;
+    text-align:center;
+}
+
+.circle{
+    background:var(--accent);
+    color:white;
+    border-radius:50%;
+}
+
+/* 删除按钮 */
+.delete-btn{
+    background:none;
+    border:none;
+    color:#ff4d4f;
+    cursor:pointer;
+    padding:4px 8px;
+    border-radius:4px;
+    font-size:16px;
+}
+
+.delete-btn:hover{
+    background:rgba(255,77,79,0.1);
+}
+
+/* 批量操作 */
+.batch-actions{
+    background:var(--card);
+    padding:10px;
+    border-radius:8px;
+    margin-bottom:10px;
+    box-shadow:0 2px 4px rgba(0,0,0,0.1);
+}
+
+.batch-controls{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.batch-controls label{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    cursor:pointer;
+}
+
+.batch-delete-btn{
+    background:#ff4d4f;
+    color:white;
+    border:none;
+    padding:6px 12px;
+    border-radius:4px;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.batch-delete-btn:hover{
+    background:#ff7875;
+}
+
+.batch-checkbox{
+    margin-right:8px;
+    cursor:pointer;
+}
+
+.task{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:var(--card);
+    padding:10px;
+    margin-bottom:8px;
+    border-radius:8px;
+}
+
+.task span{
+    flex:1;
+}
+
+/* 垃圾桶页面 */
+.trash-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.empty-btn{
+    background:#ff4d4f;
+    color:white;
+    border:none;
+    padding:6px 12px;
+    border-radius:4px;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.empty-btn:hover{
+    background:#ff7875;
+}
+
+.trash-item{
+    background:var(--card);
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:15px;
+}
+
+.trash-item div:first-child{
+    flex:1;
+}
+
+.trash-item small{
+    display:block;
+    color:gray;
+    margin-top:4px;
+    font-size:12px;
+}
+
+.trash-actions{
+    display:flex;
+    gap:8px;
+}
+
+.restore-btn{
+    background:#52c41a;
+    color:white;
+    border:none;
+    padding:4px 8px;
+    border-radius:4px;
+    cursor:pointer;
+    font-size:12px;
+}
+
+.restore-btn:hover{
+    background:#73d13d;
+}
+
+.permanent-btn{
+    background:#ff4d4f;
+    color:white;
+    border:none;
+    padding:4px 8px;
+    border-radius:4px;
+    cursor:pointer;
+    font-size:12px;
+}
+
+.permanent-btn:hover{
+    background:#ff7875;
+}
+
+.empty-trash{
+    text-align:center;
+    color:gray;
+    padding:40px 0;
+    font-style:italic;
+}
